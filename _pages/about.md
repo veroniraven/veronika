@@ -35,4 +35,10 @@ Explore some of my video storytelling projects, filmed and edited to capture mom
 
 ---
 
+---
+### 🌟 [Web Stories](/web-stories/)
+Explore my web stories for Edmonton Global. 
+
+---
+
 Thank you for visiting!
