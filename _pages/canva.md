@@ -13,7 +13,11 @@ Welcome to my Canva design portfolio! Below are collections of my visual work, o
 
 _A collection of designs themed around the Edmonton Global project._
 
-👉 *(Add images or descriptions from this folder here)*
+{% include gallery id="edmonton-global-gallery"
+   caption="Edmonton Global Projects"
+   images_path="/assets/Canva/Edmonton Global"
+   files="3.png,Amii Media Release.png,Bureau Veritas Cover.png,Global Briefing Sports Image.png,Grengine TAP Illustration.png,Happy Canada Day Instagram Post.png,IXON Social Post.png,National Indigenous Peoples Day.png,Open Farm Days 1.png,Open Farm Days 2.png,RWI Trade Heroes.png,Title Page.png,Webinar Recap Cover.png"
+%}
 
 ---
 
