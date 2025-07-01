@@ -166,6 +166,6 @@ const mediaCarouselImages = [
 
 ## 📄 DUSS Year-in-Review
 
-[Download the PDF report](/assets/Canva/duss_year-in-review.pdf)
+[Download the PDF report]({{ site.baseurl }}/assets/Canva/duss_year-in-review.pdf)
 
 ---
