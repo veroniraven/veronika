@@ -16,7 +16,7 @@ A showcase of my graphic and visual design work created in Canva.
 
 ---
 
-### ✍️ [Creative Writing](/writing/)
+### ✍️ [Creative Writing]({{ site.baseurl }}/writing/)
 Short stories, poems, and reflective essays that explore identity, emotion, and imagination.
 
 ---
