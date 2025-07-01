@@ -11,7 +11,7 @@ Welcome to my portfolio. Feel free to explore the different parts of my work:
 
 ---
 
-### 🎨 [Canva Designs](/canva/)
+### 🎨 [Canva Designs]({{ site.baseurl }}/canva/)
 A showcase of my graphic and visual design work created in Canva.
 
 ---
