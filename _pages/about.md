@@ -25,18 +25,18 @@ Short stories, poems, and reflective essays that explore identity, emotion, and 
 Episodes, interviews, and audio projects I've created or contributed to.
 
 ---
-### 🌐 [Social Media](/social-media/)
+### 🌐 [Social Media]({{ site.baseurl }}/social-media/)
 Explore my professional work creating social media posts for Edmonton Global.
 
 ---
 
-### 🎬 [Videos](/videos/)
+### 🎬 [Videos]({{ site.baseurl }}/videos/)
 Explore some of my video storytelling projects, filmed and edited to capture moments of creativity, culture, and connection.
 
 ---
 
 ---
-### 🌟 [Web Stories](/web-stories/)
+### 🌟 [Web Stories]({{ site.baseurl }}/web-stories/)
 Explore my web stories for Edmonton Global. 
 
 ---
