@@ -65,56 +65,18 @@ _A collection of designs that I created for Edmonton Global (their social media 
     showEdmontonSlide(edmontonIndex);
   });
 </script>
+
 ---
 
-## 📁 Gender Studies
+## 📄 DUSS Year-in-Review
 
-_Digital materials and visual assets focused on gender studies._
-
-<div id="gender-studies-carousel" style="max-width: 800px; margin: 0 auto; text-align: center;">
-   <img id="gender-carousel-image" src="{{ site.baseurl }}/assets/Canva/Gender Studies/1.png" width="300" style="border-radius: 18px; box-shadow: 0 6px 24px rgba(0,0,0,0.18); transition: box-shadow 0.3s, transform 0.3s;" />
-   <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.5em;">
-      <button onclick="genderCarouselPrev()" class="carousel-btn" aria-label="Previous" style="padding: 0.3em 1em; font-size: 0.9em;">
-         <span style="font-size: 1.2em; display: inline-block; transform: rotate(-20deg); color: #7b2ff2;">&#8592;</span>
-         <span style="font-family: 'Brush Script MT', cursive; font-size: 1em; color: #7b2ff2; margin-left: 0.2em;">Prev</span>
-      </button>
-      <button onclick="genderCarouselNext()" class="carousel-btn" aria-label="Next" style="padding: 0.3em 1em; font-size: 0.9em;">
-         <span style="font-family: 'Brush Script MT', cursive; font-size: 1em; color: #f357a8; margin-right: 0.2em;">Next</span>
-         <span style="font-size: 1.2em; display: inline-block; transform: rotate(20deg); color: #f357a8;">&#8594;</span>
-      </button>
-   </div>
-</div>
-<script>
-   // All images from Canva/Gender Studies
-   const genderCarouselImages = [
-    {% assign folder = "assets/Canva/Gender Studies" %}
-    {% for file in site.static_files %}
-      {% if file.path contains folder %}
-        {% if file.extname == ".png" or file.extname == ".jpg" or file.extname == ".jpeg" %}
-          "{{ site.baseurl }}{{ file.path }}",
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-   ];
-   let genderCarouselIndex = 0;
-   function updateGenderCarousel() {
-      document.getElementById('gender-carousel-image').src = genderCarouselImages[genderCarouselIndex];
-   }
-   function genderCarouselPrev() {
-      genderCarouselIndex = (genderCarouselIndex - 1 + genderCarouselImages.length) % genderCarouselImages.length;
-      updateGenderCarousel();
-   }
-   function genderCarouselNext() {
-      genderCarouselIndex = (genderCarouselIndex + 1) % genderCarouselImages.length;
-      updateGenderCarousel();
-   }
-</script>
+<a href="{{ site.baseurl }}/assets/Canva/duss_year-in-review.pdf" target="_blank" rel="noopener">Download the PDF report</a>
 
 ---
 
 ## 📁 Media Studies
 
-_Designs related to media literacy, analysis, and presentation._
+_Designs created for my Media Studies courses._
 
 <div id="media-studies-carousel" style="max-width: 800px; margin: 0 auto; text-align: center;">
    <img id="media-carousel-image" src="{{ site.baseurl }}/assets/Canva/Media Studies/Collage_C LIT 352.png" width="300" style="border-radius: 18px; box-shadow: 0 6px 24px rgba(0,0,0,0.18); transition: box-shadow 0.3s, transform 0.3s;" />
@@ -164,8 +126,52 @@ const mediaCarouselImages = [
 
 ---
 
-## 📄 DUSS Year-in-Review
+## 📁 Gender Studies
 
-<a href="{{ site.baseurl }}/assets/Canva/duss_year-in-review.pdf" target="_blank" rel="noopener">Download the PDF report</a>
+_Designs created for my gender studies courses._
+
+<div id="gender-studies-carousel" style="max-width: 800px; margin: 0 auto; text-align: center;">
+   <img id="gender-carousel-image" src="{{ site.baseurl }}/assets/Canva/Gender Studies/1.png" width="300" style="border-radius: 18px; box-shadow: 0 6px 24px rgba(0,0,0,0.18); transition: box-shadow 0.3s, transform 0.3s;" />
+   <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.5em;">
+      <button onclick="genderCarouselPrev()" class="carousel-btn" aria-label="Previous" style="padding: 0.3em 1em; font-size: 0.9em;">
+         <span style="font-size: 1.2em; display: inline-block; transform: rotate(-20deg); color: #7b2ff2;">&#8592;</span>
+         <span style="font-family: 'Brush Script MT', cursive; font-size: 1em; color: #7b2ff2; margin-left: 0.2em;">Prev</span>
+      </button>
+      <button onclick="genderCarouselNext()" class="carousel-btn" aria-label="Next" style="padding: 0.3em 1em; font-size: 0.9em;">
+         <span style="font-family: 'Brush Script MT', cursive; font-size: 1em; color: #f357a8; margin-right: 0.2em;">Next</span>
+         <span style="font-size: 1.2em; display: inline-block; transform: rotate(20deg); color: #f357a8;">&#8594;</span>
+      </button>
+   </div>
+</div>
+<script>
+   // All images from Canva/Gender Studies
+   const genderCarouselImages = [
+    {% assign folder = "assets/Canva/Gender Studies" %}
+    {% for file in site.static_files %}
+      {% if file.path contains folder %}
+        {% if file.extname == ".png" or file.extname == ".jpg" or file.extname == ".jpeg" %}
+          "{{ site.baseurl }}{{ file.path }}",
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+   ];
+   let genderCarouselIndex = 0;
+   function updateGenderCarousel() {
+      document.getElementById('gender-carousel-image').src = genderCarouselImages[genderCarouselIndex];
+   }
+   function genderCarouselPrev() {
+      genderCarouselIndex = (genderCarouselIndex - 1 + genderCarouselImages.length) % genderCarouselImages.length;
+      updateGenderCarousel();
+   }
+   function genderCarouselNext() {
+      genderCarouselIndex = (genderCarouselIndex + 1) % genderCarouselImages.length;
+      updateGenderCarousel();
+   }
+</script>
+
+
+
+
+
 
 ---
