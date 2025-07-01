@@ -11,7 +11,7 @@ Welcome to my Canva design portfolio! Below are collections of my visual work, o
 
 ## 📁 Edmonton Global
 
-_A collection of designs that I created for Edmonton Global (their social media and website) during my internship. _
+A collection of designs that I created for Edmonton Global (their social media and website) during my internship.
 
 <div style="text-align: center; margin: 1em 0;">
   <img id="edmonton-slide" src="" alt="Edmonton Design" style="max-height: 400px; width: auto; border: 1px solid #ddd; border-radius: 8px;">
