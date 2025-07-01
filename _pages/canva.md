@@ -13,67 +13,57 @@ Welcome to my Canva design portfolio! Below are collections of my visual work, o
 
 _A collection of designs themed around the Edmonton Global project._
 
-<div id="edmonton-global-carousel" style="max-width: 800px; margin: 0 auto; text-align: center;">
-   <img id="carousel-image" src="{{ site.baseurl }}/assets/Canva/Edmonton Global/3.png" width="600" style="border-radius: 18px; box-shadow: 0 6px 24px rgba(0,0,0,0.18); transition: box-shadow 0.3s, transform 0.3s;" />
-   <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.5em;">
-      <button onclick="carouselPrev()" class="carousel-btn" aria-label="Previous">
-         <span style="font-size: 2em; display: inline-block; transform: rotate(-20deg); color: #7b2ff2;">&#8592;</span>
-         <span style="font-family: 'Brush Script MT', cursive; font-size: 1.2em; color: #7b2ff2; margin-left: 0.3em;">Prev</span>
-      </button>
-      <button onclick="carouselNext()" class="carousel-btn" aria-label="Next">
-         <span style="font-family: 'Brush Script MT', cursive; font-size: 1.2em; color: #f357a8; margin-right: 0.3em;">Next</span>
-         <span style="font-size: 2em; display: inline-block; transform: rotate(20deg); color: #f357a8;">&#8594;</span>
-      </button>
-   </div>
+<div style="text-align: center; margin: 1em 0;">
+  <img id="edmonton-slide" src="" alt="Edmonton Design" style="max-height: 400px; width: auto; border: 1px solid #ddd; border-radius: 8px;">
 </div>
-<style>
-  .carousel-btn {
-    background: linear-gradient(90deg, #fbc2eb 0%, #a6c1ee 100%);
-    border: none;
-    border-radius: 2em;
-    padding: 0.6em 2em;
-    box-shadow: 0 2px 12px rgba(123,47,242,0.08);
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.15s;
-    margin: 0 0.5em;
-    display: flex;
-    align-items: center;
-    gap: 0.2em;
-  }
-  .carousel-btn:hover {
-    transform: scale(1.07) rotate(-2deg);
-    box-shadow: 0 4px 24px rgba(243,87,168,0.16);
-  }
-</style>
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin: 1em 0;">
+  <button onclick="edmontonCarouselPrev()" class="carousel-btn" aria-label="Previous" style="padding: 0.3em 1em; font-size: 0.9em;">
+    <span style="font-size: 1.2em; display: inline-block; transform: rotate(-20deg); color: #7b2ff2;">&#8592;</span>
+    <span style="font-family: 'Brush Script MT', cursive; font-size: 1em; color: #7b2ff2; margin-left: 0.2em;">Prev</span>
+  </button>
+
+  <button onclick="edmontonCarouselNext()" class="carousel-btn" aria-label="Next" style="padding: 0.3em 1em; font-size: 0.9em;">
+    <span style="font-family: 'Brush Script MT', cursive; font-size: 1em; color: #f357a8; margin-right: 0.2em;">Next</span>
+    <span style="font-size: 1.2em; display: inline-block; transform: rotate(20deg); color: #f357a8;">&#8594;</span>
+  </button>
+</div>
+
 <script>
-   // All images from Canva/Edmonton Global
-   const carouselImages = [
-      "{{ site.baseurl }}/assets/Canva/Edmonton Global/3.png",
-      "{{ site.baseurl }}/assets/Canva/Edmonton Global/Amii Media Release.png",
-      "{{ site.baseurl }}/assets/Canva/Edmonton Global/Bureau Veritas Cover.png",
-      "{{ site.baseurl }}/assets/Canva/Edmonton Global/Global Briefing Sports Image.png",
-      "{{ site.baseurl }}/assets/Canva/Edmonton Global/Grengine TAP Illustration.png",
-      "{{ site.baseurl }}/assets/Canva/Edmonton Global/Happy Canada Day Instagram Post.png",
-      "{{ site.baseurl }}/assets/Canva/Edmonton Global/IXON Social Post.png",
-      "{{ site.baseurl }}/assets/Canva/Edmonton Global/National Indigenous Peoples Day.png",
-      "{{ site.baseurl }}/assets/Canva/Edmonton Global/Open Farm Days 1.png",
-      "{{ site.baseurl }}/assets/Canva/Edmonton Global/Open Farm Days 2.png",
-      "{{ site.baseurl }}/assets/Canva/Edmonton Global/RWI Trade Heroes.png",
-      "{{ site.baseurl }}/assets/Canva/Edmonton Global/Title Page.png",
-      "{{ site.baseurl }}/assets/Canva/Edmonton Global/Webinar Recap Cover.png"
-   ];
-   let carouselIndex = 0;
-   function updateCarousel() {
-      document.getElementById('carousel-image').src = carouselImages[carouselIndex];
-   }
-   function carouselPrev() {
-      carouselIndex = (carouselIndex - 1 + carouselImages.length) % carouselImages.length;
-      updateCarousel();
-   }
-   function carouselNext() {
-      carouselIndex = (carouselIndex + 1) % carouselImages.length;
-      updateCarousel();
-   }
+  const edmontonImages = [
+    {% assign folder = "assets/Canva/Edmonton Global" %}
+    {% for file in site.static_files %}
+      {% if file.path contains folder %}
+        {% if file.extname == ".png" or file.extname == ".jpg" or file.extname == ".jpeg" %}
+          "{{ site.baseurl }}{{ file.path }}",
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  ];
+
+  let edmontonIndex = 0;
+
+  function showEdmontonSlide(index) {
+    const img = document.getElementById('edmonton-slide');
+    if (img && edmontonImages.length > 0) {
+      img.src = edmontonImages[index];
+    }
+  }
+
+  function edmontonCarouselPrev() {
+    edmontonIndex = (edmontonIndex - 1 + edmontonImages.length) % edmontonImages.length;
+    showEdmontonSlide(edmontonIndex);
+  }
+
+  function edmontonCarouselNext() {
+    edmontonIndex = (edmontonIndex + 1) % edmontonImages.length;
+    showEdmontonSlide(edmontonIndex);
+  }
+
+  // Initialize on page load
+  document.addEventListener("DOMContentLoaded", () => {
+    showEdmontonSlide(edmontonIndex);
+  });
 </script>
 ---
 
@@ -81,7 +71,44 @@ _A collection of designs themed around the Edmonton Global project._
 
 _Digital materials and visual assets focused on gender studies._
 
-👉 *(Add designs or embedded visuals here)*
+<div id="gender-studies-carousel" style="max-width: 800px; margin: 0 auto; text-align: center;">
+   <img id="gender-carousel-image" src="{{ site.baseurl }}/assets/Canva/Gender Studies/1.png" width="300" style="border-radius: 18px; box-shadow: 0 6px 24px rgba(0,0,0,0.18); transition: box-shadow 0.3s, transform 0.3s;" />
+   <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.5em;">
+      <button onclick="genderCarouselPrev()" class="carousel-btn" aria-label="Previous" style="padding: 0.3em 1em; font-size: 0.9em;">
+         <span style="font-size: 1.2em; display: inline-block; transform: rotate(-20deg); color: #7b2ff2;">&#8592;</span>
+         <span style="font-family: 'Brush Script MT', cursive; font-size: 1em; color: #7b2ff2; margin-left: 0.2em;">Prev</span>
+      </button>
+      <button onclick="genderCarouselNext()" class="carousel-btn" aria-label="Next" style="padding: 0.3em 1em; font-size: 0.9em;">
+         <span style="font-family: 'Brush Script MT', cursive; font-size: 1em; color: #f357a8; margin-right: 0.2em;">Next</span>
+         <span style="font-size: 1.2em; display: inline-block; transform: rotate(20deg); color: #f357a8;">&#8594;</span>
+      </button>
+   </div>
+</div>
+<script>
+   // All images from Canva/Gender Studies
+   const genderCarouselImages = [
+    {% assign folder = "assets/Canva/Gender Studies" %}
+    {% for file in site.static_files %}
+      {% if file.path contains folder %}
+        {% if file.extname == ".png" or file.extname == ".jpg" or file.extname == ".jpeg" %}
+          "{{ site.baseurl }}{{ file.path }}",
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+   ];
+   let genderCarouselIndex = 0;
+   function updateGenderCarousel() {
+      document.getElementById('gender-carousel-image').src = genderCarouselImages[genderCarouselIndex];
+   }
+   function genderCarouselPrev() {
+      genderCarouselIndex = (genderCarouselIndex - 1 + genderCarouselImages.length) % genderCarouselImages.length;
+      updateGenderCarousel();
+   }
+   function genderCarouselNext() {
+      genderCarouselIndex = (genderCarouselIndex + 1) % genderCarouselImages.length;
+      updateGenderCarousel();
+   }
+</script>
 
 ---
 
@@ -89,12 +116,56 @@ _Digital materials and visual assets focused on gender studies._
 
 _Designs related to media literacy, analysis, and presentation._
 
-👉 *(Add previews or links from this folder here)*
+<div id="media-studies-carousel" style="max-width: 800px; margin: 0 auto; text-align: center;">
+   <img id="media-carousel-image" src="{{ site.baseurl }}/assets/Canva/Media Studies/Collage_C LIT 352.png" width="300" style="border-radius: 18px; box-shadow: 0 6px 24px rgba(0,0,0,0.18); transition: box-shadow 0.3s, transform 0.3s;" />
+   <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.5em;">
+      <button onclick="mediaCarouselPrev()" class="carousel-btn" aria-label="Previous" style="padding: 0.3em 1em; font-size: 0.9em;">
+         <span style="font-size: 1.2em; display: inline-block; transform: rotate(-20deg); color: #7b2ff2;">&#8592;</span>
+         <span style="font-family: 'Brush Script MT', cursive; font-size: 1em; color: #7b2ff2; margin-left: 0.2em;">Prev</span>
+      </button>
+      <button onclick="mediaCarouselNext()" class="carousel-btn" aria-label="Next" style="padding: 0.3em 1em; font-size: 0.9em;">
+         <span style="font-family: 'Brush Script MT', cursive; font-size: 1em; color: #f357a8; margin-right: 0.2em;">Next</span>
+         <span style="font-size: 1.2em; display: inline-block; transform: rotate(20deg); color: #f357a8;">&#8594;</span>
+      </button>
+   </div>
+</div>
+<script>
+const mediaCarouselImages = [
+    {% assign folder = "assets/Canva/Media Studies/Learn Ukrainian_MST 210" %}
+    {% for file in site.static_files %}
+      {% if file.path contains folder %}
+        {% if file.extname == ".png" or file.extname == ".jpg" or file.extname == ".jpeg" %}
+          "{{ site.baseurl }}{{ file.path }}",
+        {% endif %}
+      {% endif %}
+    {% endfor %},
+      {% assign folder = "assets/Canva/Media Studies/" %}
+    {% for file in site.static_files %}
+      {% if file.path contains folder %}
+        {% if file.extname == ".png" or file.extname == ".jpg" or file.extname == ".jpeg" %}
+          "{{ site.baseurl }}{{ file.path }}",
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+   ];
+   let mediaCarouselIndex = 0;
+   function updateMediaCarousel() {
+      document.getElementById('media-carousel-image').src = mediaCarouselImages[mediaCarouselIndex];
+   }
+   function mediaCarouselPrev() {
+      mediaCarouselIndex = (mediaCarouselIndex - 1 + mediaCarouselImages.length) % mediaCarouselImages.length;
+      updateMediaCarousel();
+   }
+   function mediaCarouselNext() {
+      mediaCarouselIndex = (mediaCarouselIndex + 1) % mediaCarouselImages.length;
+      updateMediaCarousel();
+   }
+</script>
 
 ---
 
 ## 📄 DUSS Year-in-Review
 
-[Download the PDF report](/assets/images/canva/duss_year-in-review.pdf)
+[Download the PDF report](/assets/Canva/duss_year-in-review.pdf)
 
 ---

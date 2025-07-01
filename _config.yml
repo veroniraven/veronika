@@ -105,6 +105,11 @@ defaults:
     values:
       layout: single
       author_profile: true
+  # assets
+  - scope:
+      path: ""
+    values:
+      include: ["assets"]
 
 category_archive:
   type: liquid
