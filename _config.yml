@@ -117,3 +117,13 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5K8GF7T55F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5K8GF7T55F');
+</script>
